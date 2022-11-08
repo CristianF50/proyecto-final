@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.centered-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.form-card {
+  width: 95%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  margin-top: 4em;
+
+  .ant-typography h1{
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+  .ant-form-item-label{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .ant-form-item-control-input-content{
+    font-family: 'Roboto', sans-serif;
+    
+  }
+
+  .ant-form-item-control-input-content input{
+    border-radius: 10px !important;
+  }
+  
+  .ant-input-number{
+    border-radius: 10px !important;
+  }
+
+  .ant-select-selector{
+    border-radius: 10px !important;
+  }
+
+  .ant-btn {
+    border-radius: 10px !important;
+  }
+}
