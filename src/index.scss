@@ -1,0 +1,117 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-100 {
+height: 100vh;
+}
+
+.component-list {
+  overflow-x: auto;
+}
+
+.component-list .ant-list-header,
+.component-list .ant-list-items {
+   min-width: 1200px;
+}
+.component-list .ant-list-header,
+.component-list .component-list-item {
+  border: none !important;
+}
+
+.component-list .ant-list-header .border-header-list {
+  border-bottom: 1px solid var(--cyan-semi-dark);
+}
+
+.component-list .component-list-item.component-list-item-red .ant-card-body {
+  border: 1px solid #ff4d4f !important
+}
+
+.component-list .ant-list-pagination {
+  text-align: left;
+  margin-bottom: 5rem;
+}
+
+.component-list.component-list-group .ant-list-pagination {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/*
+* @component Listas para el despliege de registros generales
+* @description Quita padding superior del los elementos, para que no queden tan separados
+*/
+
+.component-list .component-list-item {
+  padding: 6px 0px !important;
+}
+
+.component-list .component-list-item .ant-typography {
+  line-height: 2rem;
+}
+
+.component-list .component-list-item-red .ant-typography {
+  line-height: 2rem;
+  color: #ff4d4f;
+}
+
+/*
+* @component Listas para el despliege de registros generales
+* @description Creae efecto de hover
+*/
+
+.component-list-item .hover:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/*
+* @component Listas para el despliege de registros generales
+* @description Los cards dento de la lista tomen todo el ancho 
+*/
+
+.component-list .card-list {
+  width: 100%;
+  background: var(--card-back);
+}
+
+/*
+* @component Listas para el despliege de registros generales
+* @description Da mas espacion interior a los cards de las lista
+*/
+
+.component-list .card-list .ant-card-body {
+  padding: 13px;
+  position: relative;
+}
+
+.component-list.scroll .ant-list-header,
+.component-list.scroll .ant-list-items {
+  min-width: 1200px;
+}
+
+.component-list .ant-list-items .ant-typography {
+  max-height: 32px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

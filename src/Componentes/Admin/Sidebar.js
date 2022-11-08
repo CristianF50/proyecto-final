@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+import AuthService from "../../Hooks/Auth";
 
 const { Sider } = Layout;
 
@@ -10,7 +11,7 @@ const { Sider } = Layout;
  */
 const Sidebar = (props) => {
 
-    
+    let navigate = useNavigate();
     const [redirect, setRedirect] = useState(false)
     const [key, setKey] = useState('')
     const [modal_visible, setModalVisible] = useState(false)
@@ -20,10 +21,10 @@ const Sidebar = (props) => {
      * @description Cierra la sesion
      */
     const cerrarSesion = () => {
-        
-        sessionStorage.clear();
-        setRedirect(true);
-
+        console.log("cerrar sesion")
+        AuthService.logout()
+        navigate("/");
+        window.location.reload();
     };
 
     useEffect(() => {
@@ -53,14 +54,14 @@ const Sidebar = (props) => {
                     <Menu.ItemGroup
                         title="NAVEGACIÓN"
                     >                
-                        <Menu.Item  key="customer-resume">
-                            <Link to={"/customer/resume"}>
-                                Resumen
+                        <Menu.Item  key="dashboard">
+                            <Link to={"/admin/"}>
+                                Dashboard
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="customer-invertir">
-                            <Link to={"/customer/invertir"}>
-                                Invertir
+                        <Menu.Item key="usuarios">
+                            <Link to={"/admin/usuarios"}>
+                                Usuarios
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="customer-mi-cuenta">

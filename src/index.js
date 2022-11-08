@@ -1,34 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import 'antd/dist/antd.css';
-import App from './App';
+import Landing from './Landing';
 import Consulta from './Componentes/Consulta';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Route, BrowserRouter, Routes } from 'react-router-dom';
 import AdminRouter from './Rutas/AdminRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/consulta',
-    element: <Consulta />,
-  },
-  {
-    path: '/admin',
-    element: <AdminRouter />,
-  }
-])
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router = {router} />
+    <App/>
   </React.StrictMode>
 );
 
