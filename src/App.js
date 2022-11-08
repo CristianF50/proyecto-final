@@ -39,7 +39,7 @@ class App extends Component {
           <Route path="/" element={<Landing />} />
           <Route path="consulta" element={<Consulta />} />
           <Route path="admin/" element={<AdminRouter />}>
-            <Route index={true} element={<Dashboard />} />
+            <Route index={true} element={<div />} />
             <Route path="usuarios" element={<Usuarios />} />
           </Route>
 

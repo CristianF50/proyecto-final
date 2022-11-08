@@ -20,15 +20,8 @@ class HeaderPublic extends React.Component {
             modalLogin: false,
         }
     }
-
-    componentDidMount() {
-        console.log('header props', this.props.user)
-    }
-
-
     render() {
-        const user = this.props.user;
-
+       
         return (
             <div className={this.props.className}>
                 <Header className="header-public">
@@ -50,29 +43,15 @@ class HeaderPublic extends React.Component {
                                         Editar / Visualizar Turno
                                     </Link>
                                 </Menu.Item>
-
+                                <Menu.Item>
+                                    <Link onClick={() => this.setState({modalLogin: true})} >
+                                        Log In Administrador
+                                    </Link>
+                                </Menu.Item>
 
 
                             </Menu>
-                            {user?.estatus_step >= 3 ?
-                                <Button.Group>
-                                    <Button type="primary" onClick={() => this.props.redirectTo('/admin')}>
-                                        Dashboard de Admin
-                                    </Button>
-                                    <Button type="primary" onClick={() => {
-                                        
-                                        localStorage.removeItem("user");
-
-
-                                    }}>
-                                        Cerrar Sesión
-                                    </Button>
-                                </Button.Group>
-                                :
-                                <Button className="button-spa" type="primary" onClick={() => this.setState({modalLogin: true})}>
-                                    Iniciar Sesion
-                                </Button>
-                            }
+                           
                         </Col>
                         <Col span={11} className="flex-right menu-md">
                             <Button type="ghost" icon={<MenuOutlined style={{ color: "currentcolor" }} />} onClick={() => {console.log("YEY");this.setState({ visible: true })}}></Button>

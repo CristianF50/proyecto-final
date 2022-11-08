@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Row, Col, Button, Modal, Typography, Form, Input, message, Spin, Select, Checkbox } from 'antd';
 import authHeader from "../../Hooks/auth-header";
+import axios from "axios";
 const { Title } = Typography;
-const axios = require('axios').default;
+
 const { Option } = Select;
 
 
@@ -58,7 +59,7 @@ class ModalUsuarios extends Component {
             }, { headers: authHeader() })
             }).then(response => {
                 message.success('¡Usuario Creado!')
-                this.props.onClose()
+                this.props.onCancel()
             }).catch(error => {
                 
                 message.error('Error al crear el Usuario')
@@ -78,7 +79,7 @@ class ModalUsuarios extends Component {
             id: this.props.usuario,
         }, { headers: authHeader() }).then(response => {
             message.success('¡Usuario Actualizado!')
-            this.props.onClose()
+            this.props.onCancel()
         }).catch(error => {
             
             message.error('Error al actualizar el Usuario')

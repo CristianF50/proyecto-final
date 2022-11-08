@@ -17,7 +17,7 @@ export default class AdminRouter extends Component {
     return (
       <Layout>
         <Sidebar />
-        <Layout.Content className='h-100'>
+        <Layout.Content className='h-100' style={{margin: 15}}>
           <Outlet/>
         </Layout.Content>
       </Layout>
