@@ -8,6 +8,7 @@ import Consulta from './Componentes/Consulta';
 import AdminRouter from './Rutas/AdminRouter';
 import Sidebar from './Componentes/Admin/Sidebar';
 import Dashboard from './Componentes/Admin/Dashboard';
+import Turnos from './Componentes/Admin/Turnos'
 import Usuarios from './Componentes/Admin/Usuarios';
 //css
 import './App.scss';
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path="admin/" element={<AdminRouter />}>
             <Route index={true} element={<div />} />
             <Route path="usuarios" element={<Usuarios />} />
+            <Route path="turnos" element={<Turnos />} />
           </Route>
 
           <Route path="admin/usuarios" element={<Usuarios />} />

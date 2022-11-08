@@ -64,9 +64,9 @@ const Sidebar = (props) => {
                                 Usuarios
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="customer-mi-cuenta">
-                            <Link to="/customer/mi-cuenta">
-                                Mi Cuenta
+                        <Menu.Item key="turnos">
+                            <Link to="/admin/turnos">
+                                Turnos
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="customer-cuentas">

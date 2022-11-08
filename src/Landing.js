@@ -188,10 +188,10 @@ function App() {
                   label="Nivel al que desea ingresar o ya esta cursando"
                   required
                 >
-                  <Select placeholder="Please select favourite colors">
-                    <Option value="red">Red</Option>
-                    <Option value="green">Green</Option>
-                    <Option value="blue">Blue</Option>
+                  <Select placeholder="Seleccione elm Nivel que esta cursonl">
+                    <Option value="red">Bachillerato</Option>
+                    <Option value="green">Licenciatura</Option>
+                    <Option value="blue">Primaria</Option>
                   </Select>
                 </Form.Item>
               </Col>
@@ -214,10 +214,10 @@ function App() {
                   label="Seleccione el asunto que va a tratar"
                   required
                 >
-                  <Select placeholder="Please select favourite colors">
-                    <Option value="red">Red</Option>
-                    <Option value="green">Green</Option>
-                    <Option value="blue">Blue</Option>
+                  <Select placeholder="Selecciona un asunto">
+                    <Option value="red">Revalidacion</Option>
+                    <Option value="green">Escolares</Option>
+                    <Option value="blue">Cambio de escuela</Option>
                   </Select>
                 </Form.Item>
               </Col>

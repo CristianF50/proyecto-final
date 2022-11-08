@@ -53,10 +53,7 @@ class HeaderPublic extends React.Component {
                             </Menu>
                            
                         </Col>
-                        <Col span={11} className="flex-right menu-md">
-                            <Button type="ghost" icon={<MenuOutlined style={{ color: "currentcolor" }} />} onClick={() => {console.log("YEY");this.setState({ visible: true })}}></Button>
-
-                        </Col>
+                        
                     </Row>
 
                     <Modal style={{ zIndex: 100 }} visible={this.state.modalLogin} onCancel={() => this.setState({modalLogin: false})} onOk={() => this.setState({modalLogin: false})}>
