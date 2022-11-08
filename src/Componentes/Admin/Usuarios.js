@@ -139,11 +139,11 @@ export default class Usuarios extends Component {
                                             <Col xs={24} md={4} className="center">
                                                 <Space wrap>
 
-                                                    
+                                                    <Button type="primary" onClick={() => {this.setState({usuario: item._id, modalUsuarios:true})}} className='btn-delete' danger  title="Editar"  > Editar </Button>
                                                     <Popconfirm
                                                         placement="topRight"
                                                         title="¿Deseas eliminar este usuario?"
-                                                        onConfirm={() => axios.delete('/usuarios/delete', { params: { id: item._id } }).then((response) => {
+                                                        onConfirm={() => axios.delete(`${process.env.REACT_APP_API_URL}/usuarios/delete`, { headers: authHeader(),params: { id: item._id } }).then((response) => {
                                                             message.success(response?.data?.message)
                                                             this.getUsuarios()
                                                         })

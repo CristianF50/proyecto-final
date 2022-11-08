@@ -79,9 +79,9 @@ class ModalUsuarios extends Component {
             id: this.props.usuario,
         }, { headers: authHeader() }).then(response => {
             message.success('¡Usuario Actualizado!')
-            this.props.onCancel()
+            this.props.onClose()
         }).catch(error => {
-            
+            console.log(error)
             message.error('Error al actualizar el Usuario')
         }).finally(() => this.setState({ loading: false }))
     }
@@ -162,16 +162,16 @@ class ModalUsuarios extends Component {
                             </Form.Item>
                             <Form.Item
                                 name="password"
-                                type="password"
+                                
                                 label="Contraseña"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: this.props.usuario ? false : true,
                                         message: 'Ingrese una contraseña',
                                     },
                                 ]}
                             >
-                                <Input maxLength={60} />
+                                <Input type="password" maxLength={60} />
                             </Form.Item>
                         </Col>
                     </Row>
