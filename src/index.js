@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'antd/dist/antd.css';
 import App from './App';
+import Consulta from './Componentes/Consulta';
 import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import AdminRouter from './Rutas/AdminRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/consulta',
+    element: <Consulta />,
+  },
+  {
+    path: '/admin',
+    element: <AdminRouter />,
   }
 ])
 

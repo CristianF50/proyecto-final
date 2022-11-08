@@ -4,6 +4,9 @@ import { Rate, Col, Row, Card, Typography, Form, Input, InputNumber, message, Se
 import axios from 'axios';
 import MyDocument from './Componentes/Documento.js';
 import ReactPDF, { PDFDownloadLink } from '@react-pdf/renderer';
+import { Link } from 'react-router-dom';
+import Header from './Componentes/Header';
+import Login from './Componentes/Login';
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -12,6 +15,7 @@ function App() {
   const [ciudades, setCiudades] = useState([]);
   const [turno, setTurno] = useState({});
   const [modalPDF, setModalPDF] = useState(false);
+  const [modalLogin, setModalLogin] = useState(false);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/ciudad/list`).then((res) => {
@@ -35,8 +39,11 @@ function App() {
 
 
   return (
+    <>
+    <div className='w-100'>
+      <Header/>
+    </div>
     <div className="centered-div">
-
       <Card className='form-card'>
         <Row justify="center">
           <Title>Ticket de Turno</Title>
@@ -227,7 +234,12 @@ function App() {
             </Row>
           </Form>
         </Row>
+        <Row justify="center">
+          <Link to="/consulta">Ya tengo turno</Link>
+        </Row>
       </Card>
+      
+      
       <Modal visible={modalPDF} onCancel={() => setModalPDF(false)} onOk={() => setModalPDF(false)}>
         <PDFDownloadLink document={<MyDocument data={turno} />} fileName={`${turno?.curp}.pdf`}>
           {({ blob, url, loading, error }) =>
@@ -236,7 +248,10 @@ function App() {
         </PDFDownloadLink>
       </Modal>
 
+      
+
     </div>
+    </>
   );
 }
 
