@@ -5,6 +5,7 @@ import authHeader from "../../Hooks/auth-header";
 import axios from 'axios';
 import sider from './Sidebar';
 import UsuariosModal from './UsuariosModal';
+import ModalConsulta from '../ModalConsulta';
 const { Content } = Layout;
 const { Text } = Typography
 
@@ -34,7 +35,9 @@ export default class Usuarios extends Component {
             total: 0,
             usuario: undefined,
             search: this.props.search,
-            clientes: false
+            clientes: false,
+            curp: null,
+            turno: null,
         }
     }
 
@@ -118,11 +121,14 @@ export default class Usuarios extends Component {
                                 <Col span={7} className="center">
                                     <Text strong>Nombre</Text>
                                 </Col>
-                                <Col span={7} className="center">
+                                <Col span={6} className="center">
                                     <Text strong>Ciudad</Text>
                                 </Col>
-                                <Col span={7} className="center">
+                                <Col span={6} className="center">
                                     <Text strong>CURP</Text>
+                                </Col>
+                                <Col span={2} className="center">
+                                    <Text strong>Estatus</Text>
                                 </Col>
                             </Row>
                             }
@@ -134,27 +140,30 @@ export default class Usuarios extends Component {
                                             <Col span={7} className="center">
                                                 <Text strong>{item.nombre_tramite}</Text>
                                             </Col>
-                                            <Col span={7} className="center">
+                                            <Col span={6} className="center">
                                                 <Text >{item.ciudad.nombre}</Text>
                                             </Col>
-                                            <Col span={7} className="center">
+                                            <Col span={6} className="center">
                                                 <Text >{item.curp}</Text>
+                                            </Col>
+                                            <Col span={2} className="center">
+                                                <Text >{item.estatus === 1 ? "Resuelto" : "Pendiente"}</Text>
                                             </Col>
                                            
                                             <Col span={3} className="center">
                                                 <Space wrap>
 
-                                                    <Button type="primary" onClick={() => {this.setState({usuario: item._id, modalUsuarios:true})}} className='btn-delete' danger  title="Editar"  > Editar </Button>
+                                                    <Button type="primary" onClick={() => {this.setState({usuario: item._id, modalUsuarios:true, curp: item.curp, turno:item.turno})}} className='btn-delete' danger  title="Editar"  > Editar </Button>
                                                     <Popconfirm
                                                         placement="topRight"
-                                                        title="¿Deseas eliminar este usuario?"
-                                                        onConfirm={() => axios.delete(`${process.env.REACT_APP_API_URL}/usuarios/delete`, { headers: authHeader(),params: { id: item._id } }).then((response) => {
+                                                        title="¿Deseas eliminar este turno?"
+                                                        onConfirm={() => axios.delete(`${process.env.REACT_APP_API_URL}/turno/delete`, { headers: authHeader(),params: { id: item._id } }).then((response) => {
                                                             message.success(response?.data?.message)
-                                                            this.getUsuarios()
+                                                            this.getTurnos()
                                                         })
                                                             .catch((error) => {
                                                                 message.error(error?.response?.data?.message);
-                                                                this.getUsuarios();
+                                                                this.getTurnos();
                                                             })
                                                         }
                                                         okText="Si"
@@ -174,12 +183,14 @@ export default class Usuarios extends Component {
                 </Spin>
                 
 
-                <UsuariosModal
+                <ModalConsulta
                     visible={this.state.modalUsuarios}
-                    usuario={this.state.usuario}
-                    onClose={() => {
+                    curp = {this.state.curp}
+                    turno = {this.state.turno}
+                    admin = {true}
+                    onCancel={() => {
                         this.setState({ modalUsuarios: false, usuario: undefined })
-                        this.getUsuarios(this.state.page)
+                        this.getTurnos(this.state.page)
                     }}
                 />
 

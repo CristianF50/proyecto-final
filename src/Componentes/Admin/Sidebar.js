@@ -69,19 +69,9 @@ const Sidebar = (props) => {
                                 Turnos
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="customer-cuentas">
-                            <Link to="/customer/cuentas">
-                                Cuentas
-                            </Link>
-                        </Menu.Item>
-                        <Menu.Item key="customer-reventa">
-                            <Link to={"/customer/reventa"}>
-                                Reventa
-                            </Link>
-                        </Menu.Item> 
                         
                     </Menu.ItemGroup> 
-                    <Menu.ItemGroup title="SOPORTE">
+                    <Menu.ItemGroup title="SESIÓN">
                         <Menu.Item key="cerrar-sesion">
                             <Link onClick={cerrarSesion}>
                                 Cerrar sesión

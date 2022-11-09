@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
+import { AutoComplete } from 'antd';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -12,6 +13,10 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     flexGrow: 1
+  },
+  qr: {
+    margin: 'auto',
+
   }
 });
 
@@ -29,7 +34,7 @@ export default function (props) {return(
         <Text style={{marginBottom: '25px'}}>NIVEL: {props.data.nivel}</Text>
         <Text style={{marginBottom: '25px'}}>ASUNTO: {props.data.asunto}</Text>
         <Text>CODIGO QR</Text>
-        <Image src={`https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=${props.data.curp}`} />
+        <Image style={{width: '200px',height:'200px', margin:'auto'}} src={`https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=${props.data.curp}`} />
       </View>
     </Page>
   </Document>

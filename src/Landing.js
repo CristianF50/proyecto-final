@@ -189,9 +189,9 @@ function App() {
                   required
                 >
                   <Select placeholder="Seleccione elm Nivel que esta cursonl">
-                    <Option value="red">Bachillerato</Option>
-                    <Option value="green">Licenciatura</Option>
-                    <Option value="blue">Primaria</Option>
+                    <Option value="bachillerato">Bachillerato</Option>
+                    <Option value="licenciatura">Licenciatura</Option>
+                    <Option value="primaria">Primaria</Option>
                   </Select>
                 </Form.Item>
               </Col>
@@ -215,9 +215,9 @@ function App() {
                   required
                 >
                   <Select placeholder="Selecciona un asunto">
-                    <Option value="red">Revalidacion</Option>
-                    <Option value="green">Escolares</Option>
-                    <Option value="blue">Cambio de escuela</Option>
+                    <Option value="revalidacion">Revalidacion</Option>
+                    <Option value="escolares">Escolares</Option>
+                    <Option value="cambio_escuela">Cambio de escuela</Option>
                   </Select>
                 </Form.Item>
               </Col>
